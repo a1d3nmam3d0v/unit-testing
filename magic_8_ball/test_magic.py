@@ -14,3 +14,14 @@ extract_answer_from_response
  of your ideas now. We'll talk about ways to test other aspects of this program in class.
 
 """
+import functions_magic
+from unittest import TestCase
+
+
+class TestMagic8Ball(TestCase):
+    def test_generate_url_for_question(self):
+        actual_url = functions_magic.generate_url_for_question(
+            "Did the cat drag it in?"
+        )
+        expected_url = f"https://8ball.delegator.com/magic/JSON/Did the cat drag it in?"
+        self.assertEqual(expected_url, actual_url)
