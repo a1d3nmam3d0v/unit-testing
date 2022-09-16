@@ -41,11 +41,11 @@ def extract_answer_from_response(response):
     # TODO what would happen if the response dictionary was not in the expected form?
     # TODO can you modify this function to print an error message, and return None
     #   if the response dictionary is not in this structure?
-    # try:
-    answer = response["magic"]["answer"]
-    return answer
-    # except KeyError:
-    #     return None
+    try:
+        answer = response["magic"]["answer"]
+        return answer
+    except KeyError:
+        return None
 
 
 if __name__ == "__main__":

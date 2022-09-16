@@ -25,3 +25,15 @@ class TestMagic8Ball(TestCase):
         )
         expected_url = f"https://8ball.delegator.com/magic/JSON/Did the cat drag it in?"
         self.assertEqual(expected_url, actual_url)
+
+    def test_extract_valid_answer_response(self):
+        sample = {
+            "magic": {
+                "question": "Do I have toothpaste on my sweater?",
+                "answer": "Signs point to yes",
+                "type": "Affirmative",
+            }
+        }
+        expected_answer = "Signs point to yes"
+        actual_answer = functions_magic.extract_answer_from_response(sample)
+        self.assertEqual(actual_answer, expected_answer)
